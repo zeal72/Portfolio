@@ -18,7 +18,7 @@ const sora = Sora({
   display: "swap",
 });
 
-const baseUrl = "https://zeal72.github.io/portfolio";
+const baseUrl = "https://abrahamzeal.vercel.app";
 
 export const metadata: Metadata = {
   title: "Abraham Zeal — Frontend Developer",
