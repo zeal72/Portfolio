@@ -10,7 +10,7 @@ const projects = [
     visualClass: "pv-abagold",
     desc: " AbaGold — A fintech savings & referral platform built on the Ajo (African savings) model.",
     tags: ["React", "Tailwind CSS", "Typescript"],
-    liveUrl: "Abagold.com.ng",
+    liveUrl: "https://Abagold.com.ng",
     codeUrl: "https://github.com/rad5-tech-hub/ajoplus",
   },
   {
@@ -19,7 +19,7 @@ const projects = [
     visualClass: "pv-shopfront",
     desc: "An AI-powered review management platform built for hospitality managers. Collect guest reviews, surface insights with AI analysis, and get clear recommended actions — all in one dashboard.",
     tags: ["React", "Tailwind CSS", "JavaScript"],
-    liveUrl: "ScanrevuAI.com",
+    liveUrl: "https://ScanrevuAI.com",
     codeUrl: "https://github.com/zeal72/RevuAi",
   },
   {
@@ -28,7 +28,7 @@ const projects = [
     visualClass: "pv-weather",
     desc: "A browser-based video conferencing tool that lets users create and join meetings instantly — no downloads, no installs required.",
     tags: ["Next.Js", "Tailwind CSS", "JavaScript"],
-    liveUrl: "meet-space-eight.vercel.app",
+    liveUrl: "https://meet-space-eight.vercel.app",
     codeUrl: "https://github.com/zeal72/MeetCon",
   },
 ];
