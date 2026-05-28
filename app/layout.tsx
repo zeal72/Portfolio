@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { Fraunces, Sora } from "next/font/google";
-import Script from "next/script";
 import "./globals.css";
 
 const fraunces = Fraunces({
@@ -95,10 +94,6 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${fraunces.variable} ${sora.variable}`}>
       <head>
-        <Script
-          src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
-          strategy="afterInteractive"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}

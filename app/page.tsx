@@ -1,34 +1,35 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import Script from "next/script";
 
 const projects = [
   {
     id: 1,
-    name: "TaskFlow",
-    visualClass: "pv-taskflow",
-    desc: "A project management dashboard built for clarity under pressure. Real-time updates, drag-and-drop task boards, and team insight at a glance — built for focus, not friction.",
-    tags: ["React", "Tailwind CSS", "Firebase"],
-    liveUrl: "#",
-    codeUrl: "#",
+    name: "Abagold",
+    visualClass: "pv-abagold",
+    desc: " AbaGold — A fintech savings & referral platform built on the Ajo (African savings) model.",
+    tags: ["React", "Tailwind CSS", "Typescript"],
+    liveUrl: "Abagold.com.ng",
+    codeUrl: "https://github.com/rad5-tech-hub/ajoplus",
   },
   {
     id: 2,
-    name: "Shopfront UI",
+    name: "ScanRevuAI",
     visualClass: "pv-shopfront",
-    desc: "A complete e-commerce frontend — blazing-fast product filtering, persistent cart, and checkout flow. Zero dependencies, maximum conversion.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    liveUrl: "#",
-    codeUrl: "#",
+    desc: "An AI-powered review management platform built for hospitality managers. Collect guest reviews, surface insights with AI analysis, and get clear recommended actions — all in one dashboard.",
+    tags: ["React", "Tailwind CSS", "JavaScript"],
+    liveUrl: "ScanrevuAI.com",
+    codeUrl: "https://github.com/zeal72/RevuAi",
   },
   {
     id: 3,
-    name: "WeatherNow",
+    name: "MeetCon",
     visualClass: "pv-weather",
-    desc: "Real-time weather with GPS-based location detection and 7-day forecasts. The UI shifts with the sky — day mode, dusk mode, storm mode.",
-    tags: ["React", "OpenWeather API", "CSS"],
-    liveUrl: "#",
-    codeUrl: "#",
+    desc: "A browser-based video conferencing tool that lets users create and join meetings instantly — no downloads, no installs required.",
+    tags: ["Next.Js", "Tailwind CSS", "JavaScript"],
+    liveUrl: "meet-space-eight.vercel.app",
+    codeUrl: "https://github.com/zeal72/MeetCon",
   },
 ];
 
@@ -102,12 +103,6 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    if (typeof lucide !== "undefined") {
-      lucide.createIcons();
-    }
-  }, []);
-
-  useEffect(() => {
     const emailAnchor = document.querySelector(".contact-email") as HTMLAnchorElement | null;
     if (emailAnchor && navigator.clipboard) {
       const handleClick = () => {
@@ -172,13 +167,13 @@ export default function Home() {
 
           <p className="hero-sub">
             Frontend engineering for teams that refuse to settle —
-            from Abia to the world stage, one pixel-perfect interface at a time.
+            from Lagos to the world stage, one pixel-perfect interface at a time.
           </p>
 
           <div className="hero-ctas">
             <a href="#work" className="btn btn-primary" aria-label="View my projects">
               See My Work
-              <i data-lucide="arrow-down" aria-hidden="true" width="16" height="16"></i>
+              <i data-lucide="arrow-down" aria-hidden="true"></i>
             </a>
             <a href="#contact" className="btn btn-outline" aria-label="Jump to contact section">
               Get In Touch
@@ -231,7 +226,7 @@ export default function Home() {
                       aria-label={`Open ${project.name} live demo`}
                     >
                       Live Demo
-                      <i data-lucide="external-link" aria-hidden="true" width="13" height="13"></i>
+                      <i data-lucide="external-link" aria-hidden="true"></i>
                     </a>
                     <a
                       href={project.codeUrl}
@@ -241,7 +236,7 @@ export default function Home() {
                       aria-label={`View ${project.name} source code on GitHub`}
                     >
                       View Code
-                      <i data-lucide="github" aria-hidden="true" width="13" height="13"></i>
+                      <i data-lucide="code-2" aria-hidden="true"></i>
                     </a>
                   </div>
                 </div>
@@ -338,7 +333,7 @@ export default function Home() {
               rel="noopener noreferrer"
               aria-label="View LinkedIn profile (opens in new tab)"
             >
-              <i data-lucide="linkedin" aria-hidden="true" width="16" height="16"></i>
+              <i data-lucide="briefcase" aria-hidden="true"></i>
               LinkedIn
             </a>
             <a
@@ -348,7 +343,7 @@ export default function Home() {
               rel="noopener noreferrer"
               aria-label="View GitHub profile (opens in new tab)"
             >
-              <i data-lucide="github" aria-hidden="true" width="16" height="16"></i>
+              <i data-lucide="code-2" aria-hidden="true"></i>
               GitHub
             </a>
           </div>
@@ -361,6 +356,11 @@ export default function Home() {
           <span className="footer-right">Frontend Developer &nbsp;·&nbsp; Nigeria</span>
         </div>
       </footer>
+      <Script
+        src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"
+        strategy="afterInteractive"
+        onLoad={() => lucide?.createIcons()}
+      />
     </>
   );
 }
