@@ -120,7 +120,7 @@ export default function Home() {
       <nav id="navbar" aria-label="Main navigation" ref={navbarRef}>
         <div className="nav-inner">
           <a href="#hero" className="nav-logo" aria-label="Abraham Zeal — Back to top">
-            Abraham<span>.</span>
+            <img src="/primary_mark.png" alt="Abraham Zeal" className="nav-logo-img" />
           </a>
 
           <button
@@ -152,33 +152,45 @@ export default function Home() {
         </div>
         <div className="hero-grid" aria-hidden="true"></div>
 
-        <div className="hero-content">
-          <div className="hero-eyebrow" aria-label="Status: Available for freelance, based in Nigeria">
-            <span className="dot" aria-hidden="true"></span>
-            Available for Freelance &nbsp;·&nbsp; Nigeria
+        <div className="hero-layout">
+          <div className="hero-content">
+            <div className="hero-eyebrow" aria-label="Status: Available for freelance, based in Nigeria">
+              <span className="dot" aria-hidden="true"></span>
+              Available for Freelance &nbsp;·&nbsp; Nigeria
+            </div>
+
+            <h1 className="hero-headline">
+              Built to<br />
+              <em>Perform.</em><br />
+              Designed<br />
+              to&nbsp;Last.
+            </h1>
+
+            <p className="hero-sub">
+              Frontend engineering for teams that refuse to settle —
+              from Lagos to the world stage, one pixel-perfect interface at a time.
+            </p>
+
+            <div className="hero-ctas">
+              <a href="#work" className="btn btn-primary" aria-label="View my projects">
+                See My Work
+                <i data-lucide="arrow-down" aria-hidden="true"></i>
+              </a>
+              <a href="#contact" className="btn btn-outline" aria-label="Jump to contact section">
+                Get In Touch
+              </a>
+            </div>
           </div>
 
-          <h1 className="hero-headline">
-            Built to<br />
-            <em>Perform.</em><br />
-            Designed<br />
-            to&nbsp;Last.
-          </h1>
-
-          <p className="hero-sub">
-            Frontend engineering for teams that refuse to settle —
-            from Lagos to the world stage, one pixel-perfect interface at a time.
-          </p>
-
-          <div className="hero-ctas">
-            <a href="#work" className="btn btn-primary" aria-label="View my projects">
-              See My Work
-              <i data-lucide="arrow-down" aria-hidden="true"></i>
-            </a>
-            <a href="#contact" className="btn btn-outline" aria-label="Jump to contact section">
-              Get In Touch
-            </a>
-          </div>
+          <figure className="hero-figure">
+            <div className="hero-figure-frame">
+              <img src="/Me.jpg" alt="Abraham Zeal" className="hero-figure-img" />
+              <div className="hero-figure-line" aria-hidden="true"></div>
+              <div className="hero-figure-dot hero-figure-dot--tl" aria-hidden="true"></div>
+              <div className="hero-figure-dot hero-figure-dot--bl" aria-hidden="true"></div>
+            </div>
+            <div className="hero-figure-bg" aria-hidden="true"></div>
+          </figure>
         </div>
 
         <div className="scroll-cue" aria-hidden="true">
@@ -352,7 +364,7 @@ export default function Home() {
 
       <footer>
         <div className="footer-inner">
-          <span className="footer-left">Built by Abraham Zeal &nbsp;·&nbsp; &copy; 2025</span>
+          <img src="/lockup-.png" alt="Abraham Zeal" className="footer-lockup" />
           <span className="footer-right">Frontend Developer &nbsp;·&nbsp; Nigeria</span>
         </div>
       </footer>

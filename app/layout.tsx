@@ -57,6 +57,10 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true },
   alternates: { canonical: baseUrl },
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/fav-small.png",
+  },
 };
 
 const jsonLdSchema = {
@@ -98,6 +102,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
         />
+        <link rel="apple-touch-icon" href="/fav-small.png" />
       </head>
       <body>{children}</body>
     </html>

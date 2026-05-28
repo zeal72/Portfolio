@@ -100,16 +100,18 @@ nav.scrolled {
 }
 
 .nav-logo {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 700;
-  letter-spacing: -0.01em;
-  color: var(--text);
-  transition: color var(--t);
+  display: flex;
+  align-items: center;
+  transition: opacity var(--t);
 }
 
-.nav-logo span { color: var(--accent); }
-.nav-logo:hover { color: var(--accent); }
+.nav-logo-img {
+  height: 14px;
+  width: auto;
+  display: block;
+}
+
+.nav-logo:hover { opacity: 0.75; }
 
 .nav-links {
   display: flex;
@@ -169,8 +171,9 @@ nav.scrolled {
 #hero {
   min-height: 100svh;
   display: flex;
-  align-items: center;
-  padding: var(--nav-h) 48px 0;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--nav-h) 0 0;
   position: relative;
   overflow: hidden;
 }
@@ -232,13 +235,102 @@ nav.scrolled {
   mask-image: radial-gradient(ellipse 78% 65% at 50% 42%, black 15%, transparent 100%);
 }
 
-.hero-content {
+.hero-layout {
   position: relative;
   z-index: 1;
+  width: 100%;
   max-width: var(--max-w);
   margin: 0 auto;
+  padding: 80px 48px 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 80px;
+}
+
+.hero-content {
+  flex: 0 0 auto;
+  max-width: 520px;
+}
+
+.hero-figure {
+  flex: 0 0 360px;
+  max-width: 42%;
+  position: relative;
+  margin: 0;
+  opacity: 0;
+  animation: riseIn 1s 0.4s var(--ease) forwards;
+}
+
+.hero-figure-bg {
+  position: absolute;
+  inset: -40px -20px;
+  background: radial-gradient(ellipse at 50% 40%, var(--accent-glow) 0%, transparent 70%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-figure-frame {
+  position: relative;
+  z-index: 1;
+  clip-path: polygon(0 4%, 100% 0, 100% 96%, 0 100%);
+  background: var(--bg);
+  overflow: hidden;
+}
+
+.hero-figure-frame::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, transparent 55%, rgba(7,8,13,0.7) 100%);
+  pointer-events: none;
+}
+
+.hero-figure-img {
+  display: block;
   width: 100%;
-  padding: 80px 0 120px;
+  height: 580px;
+  object-fit: cover;
+  filter: grayscale(100%) contrast(1.05);
+  transition: filter 0.8s var(--ease);
+  transform: scale(1.02);
+}
+
+.hero-figure-frame:hover .hero-figure-img {
+  filter: grayscale(0%) contrast(1);
+}
+
+/* thin accent line — left edge */
+.hero-figure-line {
+  position: absolute;
+  top: 0; left: 0;
+  width: 1px;
+  height: 100%;
+  background: var(--accent);
+  z-index: 3;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* small drafting dots on the accent line */
+.hero-figure-dot {
+  position: absolute;
+  left: -3px;
+  z-index: 3;
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s var(--ease);
+}
+
+.hero-figure-dot--tl { top: 12px; }
+.hero-figure-dot--bl { bottom: 12px; }
+
+.hero-figure-frame:hover .hero-figure-dot {
+  opacity: 1;
 }
 
 .hero-eyebrow {
@@ -779,10 +871,11 @@ footer {
   justify-content: space-between;
 }
 
-.footer-left {
-  font-size: 0.78rem;
-  color: var(--text-muted);
-  font-weight: 300;
+.footer-lockup {
+  height: 24px;
+  width: auto;
+  display: block;
+  opacity: 0.6;
 }
 
 .footer-right {
@@ -836,15 +929,65 @@ footer {
   }
 }
 
+@media (max-width: 1024px) {
+  .hero-layout {
+    flex-direction: column;
+    gap: 48px;
+    text-align: center;
+    align-items: center;
+    padding: 60px 48px 100px;
+  }
+
+  .hero-content {
+    max-width: 560px;
+  }
+
+  .hero-sub {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-ctas {
+    justify-content: center;
+  }
+
+  .hero-figure {
+    flex: 0 0 auto;
+    max-width: 360px;
+    width: 100%;
+  }
+
+  .hero-figure-img {
+    height: 480px;
+  }
+}
+
 @media (max-width: 768px) {
   :root { --nav-h: 60px; }
 
   section { padding: 96px 24px; }
-  #hero   { padding: var(--nav-h) 24px 0; }
+  #hero   { padding: var(--nav-h) 0 0; }
   footer  { padding: 24px; }
 
   .nav-inner  { padding: 0 24px; }
   .nav-toggle { display: flex; }
+
+  .hero-layout {
+    padding: 40px 24px 80px;
+    gap: 36px;
+  }
+
+  .hero-figure {
+    max-width: 280px;
+  }
+
+  .hero-figure-img {
+    height: 360px;
+  }
+
+  .hero-figure-bg {
+    inset: -20px -10px;
+  }
 
   .nav-links {
     display: none;
